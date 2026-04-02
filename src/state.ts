@@ -23,13 +23,13 @@ export const SampleImages = [
   },
   {
     name: "White TShirt",
-    url: "https://teststitchenginepublic.blob.core.windows.net/rendercache/designcache/WhiteTShirt.png",
+    url: "https://melcodemoapps.blob.core.windows.net/rendercache/designcache/WhiteTShirt.png",
     image_width_pts: 254 * 20,
     origin_off_pts: {x: -600, y: 800}
   },
   {
     name: "Blue TShirt",
-    url: "https://teststitchenginepublic.blob.core.windows.net/rendercache/designcache/Blue_Tshirt.jpg",
+    url: "https://melcodemoapps.blob.core.windows.net/rendercache/designcache/Blue_Tshirt.jpg",
     image_width_pts: 254 * 20,
   }
 ] as ImageDefinition[]
@@ -37,24 +37,24 @@ export const SampleImages = [
 
 export const SampleDesigns = [
     {
-        rfm_url: "https://teststitchenginepublic.blob.core.windows.net/rendercache/designcache/Anchor.rfm",
+        rfm_url: "https://melcodemoapps.blob.core.windows.net/rendercache/designcache/Anchor.rfm",
         name: "Anchor"
     },
     {
-        rfm_url: "https://teststitchenginepublic.blob.core.windows.net/rendercache/designcache/Rainbow.rfm",
+        rfm_url: "https://melcodemoapps.blob.core.windows.net/rendercache/designcache/Rainbow.rfm",
         name: "Rainbow"
     },
     {
-        rfm_url: "https://teststitchenginepublic.blob.core.windows.net/testdownload/Test2Lettering.rfm",
+        rfm_url: "https://melcodemoapps.blob.core.windows.net/testdownload/Test2Lettering.rfm",
         name: "Lettering Test"
     },
     {
-        rfm_url: "https://teststitchenginepublic.blob.core.windows.net/testdownload/arch_oval.rfm",
+        rfm_url: "https://melcodemoapps.blob.core.windows.net/testdownload/arch_oval.rfm",
         name: "Arch Oval"
     }
 ] as DesignDefinition[]
 
-export const defaultAlphabetPath = "https://teststitchenginepublic.blob.core.windows.net/testdownload/Astra.alp.rfm"
+export const defaultAlphabetPath = "https://melcodemoapps.blob.core.windows.net/testdownload/Astra.alp.rfm"
 
 export enum LoadStatus {
     Loading = "Loading",
