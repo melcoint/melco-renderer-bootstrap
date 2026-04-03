@@ -7,6 +7,18 @@ export async function downloadDesignAsync(renderer: GLRenderer, design_idx: numb
         dispatch(actions.DeselectAll({}))
         dispatch(actions.ChangeDesignDownloadStatus({idempotent_idx: design_idx, status: LoadStatus.Loading}))
         const se = await renderer.getFactory().createDesignElement({designMetadataUrl: design.rfm_url})
+        const metadata = renderer.getFactory().elementUtil.getStitchElementMetadataIfLoaded(se)
+        if (metadata) {
+            if (metadata.originalColors && metadata.originalColors.length > 0) {
+                se.colors = metadata.originalColors
+            }
+            if (metadata.originalSubElements && metadata.originalSubElements.length > 0) {
+                se.subElements = metadata.originalSubElements
+            }
+            if (metadata.originalLetteringParams && metadata.originalLetteringParams.length > 0) {
+                se.letteringParams = metadata.originalLetteringParams
+            }
+        }
         dispatch(actions.ChangeDesignDownloadStatus({idempotent_idx: design_idx, designElement: se, status: LoadStatus.Succeeded}))
     } catch {
         dispatch(actions.ChangeDesignDownloadStatus({idempotent_idx: design_idx, status: LoadStatus.Failed}))

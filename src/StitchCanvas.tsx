@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { createRenderer, RenderScene, WireframeLayer, RectangleUtil, Rectangle, GLRenderer, ThreadRenderOptions, ElementFactory, AnimationParams, ThreadRenderOptionsUtil, RenderSceneUtil } from "@melco/renderer";
+import { createRenderer, createSceneManager, RenderScene, WireframeLayer, RectangleUtil, Rectangle, GLRenderer, ThreadRenderOptions, ElementFactory, AnimationParams, ThreadRenderOptionsUtil, RenderSceneUtil } from "@melco/renderer";
 
 function initThreadRenderOptions(): ThreadRenderOptions {
   let r = ThreadRenderOptionsUtil.createDefault();
@@ -13,11 +13,10 @@ const emptyScene = RenderSceneUtil.createEmptyScene();
 const emptyRect = RectangleUtil.emptyRect();
 
 async function init(canvasId: string, width: number, height: number, dpi: number, viewPort: Rectangle,
-  wasmUrlOverride?: string, enableMultiSampling?: boolean): Promise<GLRenderer> {
-  // create simple canvas element and add to DOM
-
+  _wasmUrlOverride?: string, enableMultiSampling?: boolean): Promise<GLRenderer> {
   // Canvas should be added to DOM before attach webgl context
-  let renderer = await createRenderer(canvasId, wasmUrlOverride, enableMultiSampling);
+  const sceneManager = await createSceneManager();
+  let renderer = await createRenderer(canvasId, sceneManager, enableMultiSampling);
 
   let widthp = width / dpi * 254;
   let heightp = height / dpi * 254;
